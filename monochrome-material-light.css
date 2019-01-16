@@ -1,0 +1,214 @@
+/*
+    variables
+*/
+:root{
+    --mat-transition: all 0.15s ease-in-out;
+
+    --mat-white: #fff;
+    --mat-lighter:#F2F2F2;
+    --mat-light:#D0D0D0;
+    --mat-neutral:#9E9E9E;
+    --mat-dark:#6C6C6C;
+    --mat-darker:#4A4A4A;
+    --mat-black: #000;
+
+    --mat-shadow-border: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+
+    --mat-shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --mat-shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+/*
+    generic
+*/
+.btn {
+    transition: var(--mat-transition);
+}
+.btn:not(.btn-primary):not(.btn-secondary):not(.btn-danger) {
+    background-color: rgba(238, 238, 238, 0.5);
+}
+.btn:not(.btn-primary):not(.btn-secondary):not(.btn-danger):hover {
+    background-color: rgba(238, 238, 238, 0.90);
+    box-shadow: var(--mat-shadow-1);
+}
+
+/*
+    container
+*/
+#container {
+    grid-gap: 0px;
+}
+
+
+/*
+    left pane
+*/
+#tree {
+    margin-top: 0;
+    direction: rtl;
+}
+#tree * {
+    direction: ltr;
+}
+#tree::-webkit-scrollbar {
+  width: 8px;
+}
+#tree::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-right: 2px;
+}
+#tree::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 2px;
+}
+#tree::-webkit-scrollbar-corner {
+  background: transparent;
+}
+#tree::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+#tree::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+#left-pane {
+  box-shadow: var(--mat-shadow-border);
+    z-index: 9;
+}
+
+#left-pane, #left-pane *{
+    background-color: var(--mat-lighter);
+}
+
+
+/*
+    header
+*/
+#header {
+    background: var(--mat-light);
+}
+
+
+/*
+    sidebar header
+*/
+#global-buttons {
+ border: none;
+    border-radius: 0px;
+    margin:0;
+    border-bottom: 1px solid var(--mat-neutral);
+    height: 3rem;
+    box-shadow: var(--mat-shadow-border);
+    z-index: 5;
+}
+
+
+/*
+    content header
+*/
+#title-container {
+    padding-left: 0.75rem;
+    border-bottom: 1px solid var(--mat-neutral);
+    height: 3rem;
+    display: flex;
+    align-items:stretch;
+    z-index:8;
+    background-color: var(--mat-lighter);
+    box-shadow: var(--mat-shadow-border);
+}
+#title-container div {
+    flex-grow: 1;
+}
+#title-container input {
+    height: 100%;
+    background: transparent !important;
+}
+
+
+/*
+    content
+*/
+#saved-indicator,
+#note-id-display{
+    right: 1rem;
+}
+
+.note-detail-component::-webkit-scrollbar {
+  width: 8px;
+}
+.note-detail-component::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-right: 2px;
+}
+.note-detail-component::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 2px;
+}
+.note-detail-component::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.note-detail-component::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+.note-detail-component::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+#note-detail-wrapper {
+    padding: 0;
+}
+
+
+/*
+    content footer
+*/
+
+#children-overview {
+    padding: 0.5rem;
+    flex-grow: initial;
+    flex-shrink: initial;
+    flex-basis: initial;
+    display: flex !important;
+}
+#children-overview:empty {
+    display: none;
+}
+
+.child-overview {
+    padding: 0;
+    overflow: hidden;
+    height: fit-content;
+    width: initial;
+
+}
+.child-overview a {
+    padding: 1rem;
+}
+
+#attribute-list::-webkit-scrollbar {
+  width: 8px;
+}
+#attribute-list::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-right: 2px;
+}
+#attribute-list::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 2px;
+}
+#attribute-list::-webkit-scrollbar-corner {
+  background: transparent;
+}
+#attribute-list::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+#attribute-list::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.45);
+}
