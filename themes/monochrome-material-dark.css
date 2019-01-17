@@ -1,64 +1,46 @@
 /*
     variables
 */
-:root{
+:root {
+    --mat-transition      : all 0.15s ease-in-out;
+    --button-border-radius: 5px;
+    --rgb-base-color      : 255, 255, 255;
 
-    --mat-transition: all 0.15s ease-in-out;
 
     --mat-white: #fff;
-
-    --mat-1: #F2F2F2;
-    --mat-2: #D4D4D4;
-    --mat-3: #B7B7B7;
-    --mat-4: #999999;
-    --mat-5: #7B7B7B;
-    --mat-6: #5D5D5D;
-    --mat-7: #404040;
-    --mat-8: #222222;
-
+    --mat-1    : #F2F2F2;
+    --mat-2    : #D4D4D4;
+    --mat-3    : #B7B7B7;
+    --mat-4    : #999999;
+    --mat-5    : #7B7B7B;
+    --mat-6    : #5D5D5D;
+    --mat-7    : #404040;
+    --mat-8    : #222222;
     --mat-black: #000;
-
-
-    --mat-shadow-border: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
-
-    --mat-shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    --mat-shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-
 
     --main-text-color               : var(--mat-1);
     --button-text-color             : var(--mat-1);
     --input-text-color              : var(--mat-1);
     --menu-text-color               : var(--mat-1);
-
     --active-item-background-color  : var(--mat-2);
     --muted-text-color              : var(--mat-2);
-
     --hover-item-background-color   : var(--mat-3);
-
     --more-accented-background-color: var(--mat-4);
-
     --modal-background-color        : var(--mat-5);
     --accented-background-color     : var(--mat-5);
     --button-background-color       : var(--mat-5);
-
     --main-background-color         : var(--mat-6);
     --header-background-color       : var(--mat-6);
     --input-background-color        : var(--mat-6);
-
     --button-border-color           : var(--mat-7);
-
     --menu-background-color         : var(--mat-8);
-
     --hover-item-text-color         : black;
     --active-item-text-color        : black;
 
-    --button-border-radius          : 5px;
-
-    --rgb-base-color             : 255, 255, 255;
+    --mat-shadow-border: 0 2px 3px rgba(var(--rgb-base-color), .1), 0 0 0 1px rgba(var(--rgb-base-color), .1);
+    --mat-shadow-1     : 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --mat-shadow-2     : 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-
-
-
 
 /*
     generic
@@ -71,6 +53,13 @@
     box-shadow: var(--mat-shadow-1);
 }
 
+.dropdown-menu {
+    border: 1px solid var(--mat-7);
+}
+
+.dropdown-item {
+    color: var(--mat-3);
+}
 
 /*
     container
@@ -79,21 +68,26 @@
     grid-gap: 0px;
 }
 
+/*
+    main header
+*/
+#header {
+    background-color: var(--mat-8);
+}
 
 /*
     sidebar header
 */
 #global-buttons {
- border: none;
+    border: none;
     border-radius: 0px;
-    margin:0;
+    margin: 0;
     border-bottom: 1px solid var(--mat-neutral);
     height: 3rem;
     box-shadow: var(--mat-shadow-border);
     z-index: 5;
     color: var(--mat-4);
 }
-
 
 /*
     sidebar
@@ -103,37 +97,45 @@
     direction: rtl;
     color: var(--mat-4);
 }
+
 #tree * {
     direction: ltr;
 }
+
 #tree::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
+
 #tree::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background-color: rgba(var(--rgb-base-color), 0.25);
-  margin-right: 2px;
+    border-radius: 2px;
+    background-color: rgba(var(--rgb-base-color), 0.25);
+    margin-right: 2px;
 }
+
 #tree::-webkit-scrollbar-track {
-  background-color: rgba(var(--rgb-base-color), 0.05);
-  border-radius: 0 0 2px;
+    background-color: rgba(var(--rgb-base-color), 0.05);
+    border-radius: 0 0 2px;
 }
+
 #tree::-webkit-scrollbar-corner {
-  background: transparent;
+    background: transparent;
 }
+
 #tree::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
+    width: 0;
+    height: 0;
 }
+
 #tree::-webkit-scrollbar-thumb:active {
-  background: rgba(var(--rgb-base-color), 0.45);
+    background: rgba(var(--rgb-base-color), 0.45);
 }
 
 #left-pane {
-  box-shadow: var(--mat-shadow-border);
+    box-shadow: var(--mat-shadow-border);
     z-index: 9;
 }
-#left-pane, #left-pane *{
+
+#left-pane, #left-pane * {
     background-color: var(--mat-8);
 }
 
@@ -141,63 +143,67 @@
     border: none;
 }
 
-        /* selected, active */
+/* selected, active */
 span.fancytree-active.fancytree-focused span.fancytree-title {
     color: var(--mat-white) !important;
     background: transparent !important;
 }
-        /* selected, not active */
+
+/* selected, not active */
 span.fancytree-active:not(.fancytree-focused) span.fancytree-title {
     color: var(--mat-1) !important;
     background: transparent !important;
 }
-        /* hover, not selected */
+
+/* hover, not selected */
 span.fancytree-node:not(.fancytree-active):hover span.fancytree-title {
     color: var(--mat-2) !important;
     background: transparent !important;
 }
 
-
 /*
     content
 */
 #saved-indicator,
-#note-id-display{
+#note-id-display {
     right: 1rem;
 }
 
 .note-detail-component::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
+
 .note-detail-component::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background-color: rgba(var(--rgb-base-color), 0.25);
-  margin-right: 2px;
+    border-radius: 2px;
+    background-color: rgba(var(--rgb-base-color), 0.25);
+    margin-right: 2px;
 }
+
 .note-detail-component::-webkit-scrollbar-track {
-  background-color: rgba(var(--rgb-base-color), 0.05);
-  border-radius: 0 0 2px;
+    background-color: rgba(var(--rgb-base-color), 0.05);
+    border-radius: 0 0 2px;
 }
+
 .note-detail-component::-webkit-scrollbar-corner {
-  background: transparent;
+    background: transparent;
 }
+
 .note-detail-component::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
+    width: 0;
+    height: 0;
 }
+
 .note-detail-component::-webkit-scrollbar-thumb:active {
-  background: rgba(var(--rgb-base-color), 0.45);
+    background: rgba(var(--rgb-base-color), 0.45);
 }
 
 #note-detail-wrapper {
     padding: 0;
 }
 
-
 /*
     content footer
 */
-
 #children-overview {
     padding: 0.5rem;
     flex-grow: initial;
@@ -205,6 +211,7 @@ span.fancytree-node:not(.fancytree-active):hover span.fancytree-title {
     flex-basis: initial;
     display: flex !important;
 }
+
 #children-overview:empty {
     display: none;
 }
@@ -214,31 +221,36 @@ span.fancytree-node:not(.fancytree-active):hover span.fancytree-title {
     overflow: hidden;
     height: fit-content;
     width: initial;
-
 }
+
 .child-overview a {
     padding: 1rem;
 }
 
 #attribute-list::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
+
 #attribute-list::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background-color: rgba(var(--rgb-base-color), 0.25);
-  margin-right: 2px;
+    border-radius: 2px;
+    background-color: rgba(var(--rgb-base-color), 0.25);
+    margin-right: 2px;
 }
+
 #attribute-list::-webkit-scrollbar-track {
-  background-color: rgba(var(--rgb-base-color), 0.05);
-  border-radius: 0 0 2px;
+    background-color: rgba(var(--rgb-base-color), 0.05);
+    border-radius: 0 0 2px;
 }
+
 #attribute-list::-webkit-scrollbar-corner {
-  background: transparent;
+    background: transparent;
 }
+
 #attribute-list::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
+    width: 0;
+    height: 0;
 }
+
 #attribute-list::-webkit-scrollbar-thumb:active {
-  background: rgba(var(--rgb-base-color), 0.45);
+    background: rgba(var(--rgb-base-color), 0.45);
 }
