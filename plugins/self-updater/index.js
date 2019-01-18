@@ -1,6 +1,6 @@
 let config = {
     "url": "zadam/trilium",
-    "betaBuilds": false
+    "betaBuilds": true
 }
 
 function getLocalVersion(){
@@ -27,18 +27,18 @@ function checkForNewer(){
 
             const localVersion = getLocalVersion()
             let latestVersion = config.betaBuilds ? data1[0].tag_name:  data1.tag_name
-            
-            foundConfigs(localVersion, latestVersion)
+
+            let localVstripped  = localVersion.replace(/\D/g, '')
+            let latestVstripped = latestVersion.replace(/\D/g, '')
+
+            if(latestVstripped > localVstripped){
+                window.alert(`                                       Update available!\n\nCurrent version: ${localVersion}\nLatest Version:   ${latestVersion}`)
+            }
+
         })
 
     })
 
-}
-
-function foundConfigs(local, latest){
-    console.log(`find beta: ${config.betaBuilds}`)
-    console.log(`local: ${local}`)
-    console.log(`latest: ${latest}`)
 }
 
 checkForNewer()
