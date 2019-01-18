@@ -1,6 +1,5 @@
 # Themes
-Themes are extensions to the current base themes.
-
+Themes are extensions to the current base themes.  
 Any theme labeled `Light` requires the base light theme be running, and the same for `Dark` and `Black`.
 ###### Installing a theme:
 * Set the note type to CSS
@@ -8,8 +7,7 @@ Any theme labeled `Light` requires the base light theme be running, and the same
 * Add a label of `appCss`
 * Press ctrl+R to refresh Trilium
 
-*be aware only one theme should be turned on at once, as they will fight at the moment*
-
+*be aware only one theme should be turned on at once, as they will fight at the moment*  
 More detailed explanation within the official wiki [here](https://github.com/zadam/trilium/wiki/Themes).
 
 
