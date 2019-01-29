@@ -24,3 +24,9 @@ Plugins may contain styling as well as an index.js that contain everything neede
 * setup CSS file as if it were a theme (you do not need to remove the active theme)
 * add a label to the index.js file with the name of `run` and the value of `frontendStartup`
 * Press ctrl+R to refresh Trilium
+
+### Collapsing Sidebar
+![alt](https://i.imgur.com/q9HRo8E.png)
+
+### Collapsing Sidebar
+![alt](https://i.imgur.com/oenPLCI.png)
