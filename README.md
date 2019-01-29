@@ -28,5 +28,5 @@ Plugins may contain styling as well as an index.js that contain everything neede
 ### Collapsing Sidebar
 ![alt](https://i.imgur.com/q9HRo8E.png)
 
-### Collapsing Sidebar
+### Update Checker
 ![alt](https://i.imgur.com/oenPLCI.png)
