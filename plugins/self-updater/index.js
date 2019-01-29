@@ -1,18 +1,23 @@
+
 let config = {
     "url": "zadam/trilium",
     "betaBuilds": true
 }
 
 function getLocalVersion(){
-    var appVersion = require('electron').remote.app.getVersion();
-    return appVersion
+
+    return api.runOnServer(() => {
+        const getAppInfo = api.getAppInfo()
+        return getAppInfo.appVersion
+    })
+
 }
 
 function getLatestVersion(url){
     return fetch(url)
 }
 
-function checkForNewer(){
+async function checkForNewer(){
 
     let url = `https://api.github.com/repos/${config.url}/releases`
 
@@ -20,25 +25,26 @@ function checkForNewer(){
         url = url.concat('/latest')
     }
 
-    getLatestVersion(url).then(function(data){
+    const data = await getLatestVersion(url)
 
         //double promise due to redirect from github
-        data.json().then(function(data1){
 
-            const localVersion = getLocalVersion()
-            let latestVersion = config.betaBuilds ? data1[0].tag_name:  data1.tag_name
+        const values = await Promise.all([
+            getLocalVersion(),
+            data.json()
+        ])
 
-            let localVstripped  = localVersion.replace(/\D/g, '')
-            let latestVstripped = latestVersion.replace(/\D/g, '')
+        const localVersion = values[0]
+        let latestVersion = config.betaBuilds ? values[1][0].tag_name : values[1].tag_name
 
-            if(latestVstripped > localVstripped){
-                window.alert(`                                       Update available!\n\nCurrent version: ${localVersion}\nLatest Version:   ${latestVersion}`)
-            }
+        console.log(localVersion)
 
-        })
+        let localVstripped  = localVersion.replace(/\D/g, '')
+        let latestVstripped = latestVersion.replace(/\D/g, '')
 
-    })
-
+        if(latestVstripped > localVstripped){
+            window.alert(`                                       Update available!\n\nCurrent version: ${localVersion}\nLatest Version:   ${latestVersion}`)
+        }
 }
 
 checkForNewer()
